@@ -72,6 +72,11 @@ module Slappy
             fail exception, exception.message
           end
 
+          #new("#{list_name}": result[list_name])
+          convert(result)
+        end
+
+        def convert(result)
           result[list_name].map { |data| new(data) }
         end
       end
