@@ -43,7 +43,7 @@ module Slappy
         end
 
         def api_name
-          @api_name || name.split('::').last.downcase + 's'
+          @api_name || name.split('::').last.underscore + 's'
         end
 
         def list_name
