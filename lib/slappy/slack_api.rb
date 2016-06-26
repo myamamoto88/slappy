@@ -4,6 +4,8 @@ require 'slappy/slack_api/channel'
 require 'slappy/slack_api/direct'
 require 'slappy/slack_api/file'
 require 'slappy/slack_api/group'
+require 'slappy/slack_api/usergroup'
+require 'slappy/slack_api/usergroups_user'
 require 'slappy/slack_api/user'
 require 'slappy/slack_api/pin'
 
@@ -17,7 +19,7 @@ module Slappy
     end
 
     def self.find(value)
-      [:Channel, :Group, :Direct, :User].each do |klass|
+      [:Channel, :Group, :Direct, :User, :UserGroup, :UserGroupsUser].each do |klass|
         klass = "Slappy::SlackAPI::#{klass}".constantize
         result = (klass.find(id: value) || klass.find(name: value))
         return result if result
