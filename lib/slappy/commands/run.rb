@@ -43,7 +43,7 @@ module Slappy
 
       def load_libs
         load_directory(:lib_dir_path) do |lib_dir|
-          Dir.glob("#{lib_dir}/**/*.rb").each do |file|
+          Dir.glob("#{lib_dir}/**/*.rb").sort.each do |file|
             require file
           end
         end
